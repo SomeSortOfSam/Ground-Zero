@@ -10,7 +10,7 @@ public class MaskControler : MonoBehaviour
     public Animator gunAnimator;
     public GameObject mask;
     public int maxSize = 10;
-    public static List<SpriteMask> spriteMasks = new List<SpriteMask>();
+    public static List<Transform> masks = new List<Transform>();
 
     // Update is called once per frame
     void Update()
@@ -23,9 +23,9 @@ public class MaskControler : MonoBehaviour
         {
             gunAnimator.SetTrigger("Fire");
             Player.fidget = 0;
-            Instantiate(mask, Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10)), Quaternion.identity);
-            mask.GetComponent<MaskBehaviour>().maxSize = maxSize;
-            spriteMasks.Add(mask.GetComponent<SpriteMask>());
+            GameObject obj = Instantiate(mask, Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10)), Quaternion.identity);
+            obj.GetComponent<MaskBehaviour>().maxSize = maxSize;
+            masks.Add(obj.transform);
         }
     }
 }

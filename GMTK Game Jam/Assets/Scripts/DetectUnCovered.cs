@@ -8,13 +8,13 @@ public class DetectUnCovered : MonoBehaviour
     public SpriteRenderer over;
     public SpriteRenderer under;
     public event Action<bool> UncoveredChangedEvent;
-    public bool Uncovered { get => GetIsUncovered(under); }
+    public bool Uncovered { get => GetIsUncovered(); }
 
-    private bool GetIsUncovered(SpriteRenderer under)
+    private bool GetIsUncovered()
     {
-        foreach(SpriteMask mask in MaskControler.spriteMasks)
+        foreach(Transform mask in MaskControler.masks)
         {
-            if (mask.bounds.Contains(under.transform.position))
+            if (Vector2.Distance(transform.position,mask.position) < 1)
             {
                 return true;
             }
@@ -23,12 +23,24 @@ public class DetectUnCovered : MonoBehaviour
     }
 
     bool prevFrame;
-    private void Update()
+    internal virtual void Update()
     {
         if(prevFrame != Uncovered)
         {
             UncoveredChangedEvent?.Invoke(Uncovered);
             prevFrame = Uncovered;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        if (Uncovered)
+        {
+            Gizmos.color = Color.red;
+        }
+        else
+        {
+            Gizmos.color = Color.green;
+        }
+        Gizmos.DrawSphere(transform.position, .1f);
     }
 }
