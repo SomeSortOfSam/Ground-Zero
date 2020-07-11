@@ -22,4 +22,8 @@ public static class Degradation
             percent = value;
         }
     }
+    public static void Reset()
+    {
+        Percent = 0;
+    }
 }
