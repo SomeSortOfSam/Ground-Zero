@@ -9,11 +9,13 @@ public class MaskControler : MonoBehaviour
     public Transform gun;
     public Animator gunAnimator;
     public GameObject spriteMask;
+    public static GameObject staticSpriteMask;
     public static List<SpriteMask> masks = new List<SpriteMask>();
 
     public void Start()
     {
         masks.Clear();
+        staticSpriteMask = spriteMask;
     }
     // Update is called once per frame
     void Update()
@@ -37,7 +39,7 @@ public class MaskControler : MonoBehaviour
         float size = Mathf.Lerp(10,30, Degradation.Percent);
         SpriteMask mask = SummonMask(mousePos, size);
         yield return new WaitForSeconds(.1f);
-        for(float i = 0; i < Degradation.Percent; i += .1f)
+        for(float i = 0; i < Degradation.Percent && mask != null; i += .1f)
         {
             size /= 2;
             SummonMask(mousePos + (new Vector2(random.Next(-1,1),random.Next(-1,1)).normalized * mask.bounds.extents), size);
@@ -45,9 +47,9 @@ public class MaskControler : MonoBehaviour
         }
     }
 
-    private SpriteMask SummonMask(Vector2 mousePos, float maxSize)
+    public static SpriteMask SummonMask(Vector2 mousePos, float maxSize)
     {
-        GameObject obj = Instantiate(spriteMask, mousePos, Quaternion.identity);
+        GameObject obj = Instantiate(staticSpriteMask, mousePos, Quaternion.identity);
         obj.GetComponent<MaskBehaviour>().maxSize = maxSize;
         SpriteMask mask = obj.GetComponent<SpriteMask>();
         masks.Add(mask);

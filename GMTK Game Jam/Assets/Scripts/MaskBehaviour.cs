@@ -4,6 +4,7 @@ using UnityEngine;
 public class MaskBehaviour : MonoBehaviour
 {
     private int life = 100;
+    private int InverseLife { get => 100 - life; }
     public float maxSize = 10;
 
     private void Update()
@@ -13,7 +14,7 @@ public class MaskBehaviour : MonoBehaviour
             MaskControler.masks.Remove(transform.GetComponent<SpriteMask>());
             Destroy(gameObject);
         }
-        float lifeSquared = Mathf.Clamp(life * life, 0, maxSize);
+        float lifeSquared = life < 50 ? Mathf.Clamp(life * life, 0, maxSize) : Mathf.Clamp(InverseLife * InverseLife, 0, maxSize);
         Vector3 size = Vector3.one * lifeSquared;
         transform.localScale = size;
         life--;

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovment : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class PlayerMovment : MonoBehaviour
 
     private void Start()
     {
+        Player.player = this;
         Physics2D.queriesStartInColliders = false;
         Player.DieEvent += Degradation.Reset;
         Player.DieEvent += Map.Reset;
         Player.DieEvent += DegredationChecker.ColorChangeRed;
+        Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
     }
     // Update is called once per frame
     void Update()
@@ -35,7 +38,8 @@ public class PlayerMovment : MonoBehaviour
 
     private Vector3 Movement(Vector3 pos)
     {
-        pos.x += Input.GetAxisRaw("Horizontal") * speed;
+        Vector3 perferedPos = pos;
+        perferedPos.x += Input.GetAxisRaw("Horizontal") * speed;
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
             animator.SetBool("walking", true);
@@ -53,7 +57,7 @@ public class PlayerMovment : MonoBehaviour
             animator.SetBool("walking", false);
         }
 
-        return pos;
+        return !Physics2D.OverlapBox(perferedPos, Vector2.one * .01f, 0).CompareTag("Tile") ? perferedPos : pos;
     }
 
     private float Jump()
@@ -119,6 +123,11 @@ public class PlayerMovment : MonoBehaviour
         animator.SetTrigger("Death");
         rigidbody2.gravityScale = 0;
         rigidbody2.velocity *= .1f;
+        if (Degradation.Percent >= 1)
+        {
+            SceneManager.UnloadSceneAsync(FindObjectOfType<Map>().index + 1);
+            SceneManager.LoadSceneAsync(FindObjectOfType<Map>().index + 2, LoadSceneMode.Additive);
+        }
         yield return new WaitForSeconds(2);
         transform.position = startPos.position;
         rigidbody2.gravityScale = 1;
@@ -128,6 +137,7 @@ public class PlayerMovment : MonoBehaviour
 
 public static class Player
 {
+    public static PlayerMovment player;
     public static int groundedNum;
     public static bool Grounded { get => groundedNum >= 0; }
     public static int fidget;
