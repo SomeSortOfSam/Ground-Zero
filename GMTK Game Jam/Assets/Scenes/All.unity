@@ -989,7 +989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c50d8b1a4a05034b88b2cf81734c2e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 10
   spriteRenderer: {fileID: 1906031406}
   animator: {fileID: 1906031402}
   rayLeght: 0.54

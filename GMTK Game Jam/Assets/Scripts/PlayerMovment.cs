@@ -27,17 +27,16 @@ public class PlayerMovment : MonoBehaviour
         {
             return;
         }
-        Vector3 pos = transform.position;
-        pos = Movement(pos);
-        pos.y += Jump();
-        transform.position = pos;
+        Movement();
+        Jump();
         transform.rotation = Quaternion.identity;
     }
 
-    private Vector3 Movement(Vector3 pos)
+    private void Movement()
     {
-        Vector3 perferedPos = pos;
-        perferedPos.x += Input.GetAxisRaw("Horizontal") * speed;
+        Vector2 velocity = rigidbody2.velocity;
+        velocity.x = Input.GetAxisRaw("Horizontal") * speed;
+        rigidbody2.velocity = velocity;
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
             animator.SetBool("walking", true);
@@ -54,11 +53,9 @@ public class PlayerMovment : MonoBehaviour
         {
             animator.SetBool("walking", false);
         }
-
-        return !Physics2D.OverlapBox(perferedPos, Vector2.one * .1f, 0).CompareTag("Tile") ? perferedPos : pos;
     }
 
-    private float Jump()
+    private void Jump()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.down);
         if (hitInfo.collider != null && hitInfo.distance < rayLeght)
@@ -71,7 +68,7 @@ public class PlayerMovment : MonoBehaviour
         }
         if (hitInfo.distance < rayLeght)
         {
-            Player.groundedNum = 100;
+            Player.groundedNum = 20;
             Player.fidget++;
             if (Player.fidget == 550 || Player.fidget == 551)
             {
@@ -88,11 +85,17 @@ public class PlayerMovment : MonoBehaviour
             Player.groundedNum--;
             Player.fidget = 0;
         }
-        if (Player.Grounded && Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W))
+        if (Player.Grounded && (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.W)))
         {
-            return speed;
+            Vector2 velocity = rigidbody2.velocity;
+            velocity.y = speed;
+            rigidbody2.velocity = velocity;
+        } else
+        {
+            Vector2 velocity = rigidbody2.velocity;
+            velocity.y = -9.18f;
+            rigidbody2.velocity = velocity;
         }
-        return 0;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

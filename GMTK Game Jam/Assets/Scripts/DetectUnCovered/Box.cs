@@ -1,0 +1,40 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Box : DetectUnCovered
+{
+    public Rigidbody2D rigidbody2;
+    public Animator animator;
+    internal void Update()
+    {
+        if (Uncovered)
+        {
+            Vector2 velocity = rigidbody2.velocity;
+            Vector3 direction = Player.player.transform.position - transform.position;
+            velocity.x += (direction.x / direction.magnitude) *.1f;
+            rigidbody2.velocity = velocity;
+            transform.rotation = Quaternion.identity;
+            if((direction.x / direction.magnitude) <= 0)
+            {
+                animator.SetBool("Right", false);
+            }
+            else
+            {
+                animator.SetBool("Right", true);
+            }
+            animator.SetBool("Dead",Player.dead);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (Uncovered)
+        {
+            Vector2 velocity = rigidbody2.velocity;
+            Vector3 direction = Player.player.transform.position - transform.position;
+            velocity.y += (direction.y / direction.magnitude) * .1f;
+            rigidbody2.velocity = velocity;
+        }
+    }
+}

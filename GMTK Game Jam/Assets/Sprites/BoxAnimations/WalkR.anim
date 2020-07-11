@@ -29,10 +29,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: d68c6a1bba976ca43b8bc8f86c8b137a, type: 3}
     - time: 0.33333334
       value: {fileID: 21300000, guid: bf892a720cd5c3d41a8f8d78d93884c3, type: 3}
-    - time: 0.41666666
-      value: {fileID: 21300000, guid: 24625981e821e684da7866417f89359d, type: 3}
     attribute: m_Sprite
-    path: 
+    path: TileUnder
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -43,7 +41,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 3496553401
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -55,13 +53,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 2d34a2b686f8e974c99f726db91d35e2, type: 3}
     - {fileID: 21300000, guid: d68c6a1bba976ca43b8bc8f86c8b137a, type: 3}
     - {fileID: 21300000, guid: bf892a720cd5c3d41a8f8d78d93884c3, type: 3}
-    - {fileID: 21300000, guid: 24625981e821e684da7866417f89359d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.4166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
