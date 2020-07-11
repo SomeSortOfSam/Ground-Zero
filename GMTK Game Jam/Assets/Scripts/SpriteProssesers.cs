@@ -13,7 +13,7 @@ public class SpriteProssesers : AssetPostprocessor
         if (isInSpritesDirectory)
         {
             TextureImporter textureImporter = (TextureImporter)assetImporter;
-            textureImporter.spritePixelsPerUnit = 64;
+            textureImporter.spritePixelsPerUnit = 640;
         }
     }
 }
