@@ -8,10 +8,13 @@ public class MaskControler : MonoBehaviour
     public Sprite sprite;
     public Transform gun;
     public Animator gunAnimator;
-    public GameObject mask;
-    public int maxSize = 10;
-    public static List<Transform> masks = new List<Transform>();
+    public GameObject spriteMask;
+    public static List<SpriteMask> masks = new List<SpriteMask>();
 
+    public void Start()
+    {
+        masks.Clear();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -23,9 +26,31 @@ public class MaskControler : MonoBehaviour
         {
             gunAnimator.SetTrigger("Fire");
             Player.fidget = 0;
-            GameObject obj = Instantiate(mask, Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10)), Quaternion.identity);
-            obj.GetComponent<MaskBehaviour>().maxSize = maxSize;
-            masks.Add(obj.transform);
+            StartCoroutine(DegradationCorutine(mousePos));
         }
+    }
+
+    private IEnumerator DegradationCorutine(Vector2 mousePos)
+    {
+        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
+        System.Random random = new System.Random();
+        float size = Mathf.Lerp(10,30, Degradation.Percent);
+        SpriteMask mask = SummonMask(mousePos, size);
+        yield return new WaitForSeconds(.1f);
+        for(float i = 0; i < Degradation.Percent; i += .1f)
+        {
+            size /= 2;
+            SummonMask(mousePos + (new Vector2(random.Next(-1,1),random.Next(-1,1)).normalized * mask.bounds.extents), size);
+            yield return new WaitForSeconds(.1f);
+        }
+    }
+
+    private SpriteMask SummonMask(Vector2 mousePos, float maxSize)
+    {
+        GameObject obj = Instantiate(spriteMask, mousePos, Quaternion.identity);
+        obj.GetComponent<MaskBehaviour>().maxSize = maxSize;
+        SpriteMask mask = obj.GetComponent<SpriteMask>();
+        masks.Add(mask);
+        return mask;
     }
 }

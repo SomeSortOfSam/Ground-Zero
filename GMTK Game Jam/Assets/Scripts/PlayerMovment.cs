@@ -16,6 +16,8 @@ public class PlayerMovment : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
         Player.DieEvent += Degradation.Reset;
+        Player.DieEvent += Map.Reset;
+        Player.DieEvent += DegredationChecker.ColorChangeRed;
     }
     // Update is called once per frame
     void Update()
@@ -71,7 +73,7 @@ public class PlayerMovment : MonoBehaviour
             Player.fidget++;
             if (Player.fidget == 550 || Player.fidget == 551)
             {
-                animator.SetBool("figdet",true);
+                animator.SetBool("figdet", true);
             }
             else if (Player.fidget > 1000)
             {
@@ -92,8 +94,19 @@ public class PlayerMovment : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Player.InvkoeDieEvent();
-        Die();
+        if (!Player.dead)
+        {
+            if (collision.CompareTag("Mask"))
+            {
+                Player.InvkoeDieEvent();
+                Die();
+            }
+            else if (collision.CompareTag("Pickup"))
+            {
+                collision.gameObject.SetActive(false);
+                Degradation.pickups++;
+            }
+        }
     }
 
     private void Die()

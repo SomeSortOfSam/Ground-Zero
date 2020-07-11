@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEngine;
 
 public static class Degradation
 {
     public static event Action FinalDegradationEvent;
-    public static float Percent { get => percent; set => Increment(value); }
-    static float percent;
-
-    private static void Increment(float value)
-    {
-        if (value >= 1)
+    public static float Percent { get
         {
-            FinalDegradationEvent?.Invoke();
-            percent = 1;
-        }
-        else
-        {
-            percent = value;
+            float pickups = Degradation.pickups;
+            float totalPickups = Degradation.totalPickups;
+            float output = pickups / totalPickups;
+            if (output == 1)
+            {
+                FinalDegradationEvent?.Invoke();
+            }
+            return output;
         }
     }
+    internal static int pickups;
+    internal static int totalPickups;
+
     public static void Reset()
     {
-        Percent = 0;
+        pickups = 0;
     }
 }

@@ -6,16 +6,15 @@ public class Box : DetectUnCovered
 {
     public Rigidbody2D rigidbody2;
     public Transform target;
-    internal override void Update()
+    internal void Update()
     {
-        base.Update();
-
         if (Uncovered)
         {
             Vector2 velocity = rigidbody2.velocity;
             Vector3 direction = target.position - transform.position;
-            velocity.x = direction.x / direction.magnitude;
+            velocity.x += (direction.x / direction.magnitude) *.1f;
             rigidbody2.velocity = velocity;
+            transform.rotation = Quaternion.identity;
         }
     }
 }
