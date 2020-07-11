@@ -19,6 +19,8 @@ public class PlayerMovment : MonoBehaviour
         Player.DieEvent += Degradation.Reset;
         Player.DieEvent += DegredationChecker.ColorChangeRed;
         Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
+        Player.DieEvent += Die;
+        Degradation.FinalDegradationEvent += Player.InvkoeDieEvent;
     }
     // Update is called once per frame
     void Update()
@@ -104,7 +106,6 @@ public class PlayerMovment : MonoBehaviour
             if (collision.CompareTag("Mask"))
             {
                 Player.InvkoeDieEvent();
-                Die();
             }
             else if (collision.CompareTag("Pickup"))
             {

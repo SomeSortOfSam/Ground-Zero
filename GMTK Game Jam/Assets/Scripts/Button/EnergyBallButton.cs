@@ -11,11 +11,4 @@ public class EnergyBallButton : Button
             base.OnTriggerEnter2D(collision);
         }
     }
-    public override void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.CompareTag("Pellte"))
-        {
-            base.OnTriggerExit2D(collider);
-        }
-    }
 }

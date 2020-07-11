@@ -5,7 +5,7 @@ public class MaskBehaviour : MonoBehaviour
 {
     private int life = 100;
     private int InverseLife { get => 100 - life; }
-    public float maxSize = 10;
+    public float maxSize = 1;
 
     private void Update()
     {

@@ -20,7 +20,14 @@ public class Turret : DetectUnCovered
                 Debug.DrawLine(head.position, hit.point, Color.red);
                 if (fireTimer == framesBetweenFire)
                 {
-                    Instantiate(bulletHit, hit.point, Quaternion.Euler(-head.up));
+                    if(hit.collider.TryGetComponent(out PlayerMovment Pm))
+                    {
+                        Player.InvkoeDieEvent();
+                    }
+                    else
+                    {
+                        Destroy(hit.collider.gameObject);
+                    }
                     fireTimer = 0;
                 }
             }
