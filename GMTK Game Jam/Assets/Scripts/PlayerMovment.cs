@@ -16,7 +16,6 @@ public class PlayerMovment : MonoBehaviour
     private void Start()
     {
         Player.player = this;
-        Physics2D.queriesStartInColliders = false;
         Player.DieEvent += Degradation.Reset;
         Player.DieEvent += Map.Reset;
         Player.DieEvent += DegredationChecker.ColorChangeRed;
@@ -57,7 +56,7 @@ public class PlayerMovment : MonoBehaviour
             animator.SetBool("walking", false);
         }
 
-        return !Physics2D.OverlapBox(perferedPos, Vector2.one * .01f, 0).CompareTag("Tile") ? perferedPos : pos;
+        return !Physics2D.OverlapBox(perferedPos, Vector2.one * .1f, 0).CompareTag("Tile") ? perferedPos : pos;
     }
 
     private float Jump()

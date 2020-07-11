@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class DetectUnCovered : MonoBehaviour
 {
-    public SpriteRenderer over;
-    public SpriteRenderer under;
     public event Action<bool> UncoveredChangedEvent;
     public bool Uncovered { get => GetIsUncovered(); }
     bool prevFrame = false;
