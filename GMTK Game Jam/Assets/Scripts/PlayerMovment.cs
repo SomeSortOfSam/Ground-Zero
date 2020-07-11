@@ -6,7 +6,9 @@ public class PlayerMovment : MonoBehaviour
 {
     public float speed = .1f;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
     int grounded;
+    public int fidget;
     public float rayLeght = .25f;
 
     private void Start()
@@ -20,11 +22,17 @@ public class PlayerMovment : MonoBehaviour
         pos.x += Input.GetAxisRaw("Horizontal") * speed;
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
+            animator.SetBool("walking", true);
             spriteRenderer.flipX = true;
         }
-        if (Input.GetAxisRaw("Horizontal") == -1)
+        else if (Input.GetAxisRaw("Horizontal") == -1)
         {
+            animator.SetBool("walking", true);
             spriteRenderer.flipX = false;
+        }
+        else
+        {
+            animator.SetBool("walking", false);
         }
         pos.y += Jump();
         transform.position = pos;
@@ -44,6 +52,15 @@ public class PlayerMovment : MonoBehaviour
         if (hitInfo.distance < rayLeght)
         {
             grounded = 100;
+            fidget++;
+            if (fidget == 550 || fidget == 551)
+            {
+                animator.SetTrigger("figdet");
+            }
+            else if (fidget > 1000)
+            {
+                fidget -= 1000;
+            }
         }
         else if (grounded >= 0)
         {
