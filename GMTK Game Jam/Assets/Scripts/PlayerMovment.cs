@@ -55,10 +55,11 @@ public class PlayerMovment : MonoBehaviour
             fidget++;
             if (fidget == 550 || fidget == 551)
             {
-                animator.SetTrigger("figdet");
+                animator.SetBool("figdet",true);
             }
             else if (fidget > 1000)
             {
+                animator.SetBool("figdet", false);
                 fidget -= 1000;
             }
         }
