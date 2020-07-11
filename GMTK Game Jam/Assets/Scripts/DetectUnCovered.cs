@@ -6,7 +6,7 @@ using UnityEngine;
 public class DetectUnCovered : MonoBehaviour
 {
     public event Action<bool> UncoveredChangedEvent;
-    public bool Uncovered { get => GetIsUncovered(); }
+    public bool Uncovered { get => GetIsUncovered() && !Player.dead; }
     bool prevFrame = false;
 
     private bool GetIsUncovered()

@@ -17,7 +17,6 @@ public class PlayerMovment : MonoBehaviour
     {
         Player.player = this;
         Player.DieEvent += Degradation.Reset;
-        Player.DieEvent += Map.Reset;
         Player.DieEvent += DegredationChecker.ColorChangeRed;
         Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
     }
@@ -122,10 +121,14 @@ public class PlayerMovment : MonoBehaviour
         animator.SetTrigger("Death");
         rigidbody2.gravityScale = 0;
         rigidbody2.velocity *= .1f;
+        SceneManager.UnloadSceneAsync(FindObjectOfType<Map>().index + 1);
         if (Degradation.Percent >= 1)
         {
-            SceneManager.UnloadSceneAsync(FindObjectOfType<Map>().index + 1);
             SceneManager.LoadSceneAsync(FindObjectOfType<Map>().index + 2, LoadSceneMode.Additive);
+        }
+        else
+        {
+            SceneManager.LoadSceneAsync(FindObjectOfType<Map>().index + 1, LoadSceneMode.Additive);
         }
         yield return new WaitForSeconds(2);
         transform.position = startPos.position;
