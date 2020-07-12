@@ -9,6 +9,7 @@ public class PlayerMovment : MonoBehaviour
     public float speed = .1f;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public SpriteRenderer gun;
     public float rayLeght = .25f;
     public Transform startPos;
     public Rigidbody2D rigidbody2;
@@ -19,7 +20,6 @@ public class PlayerMovment : MonoBehaviour
         Player.DieEvent += Degradation.Reset;
         Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
         Player.DieEvent += Die;
-        Degradation.FinalDegradationEvent += Player.InvkoeDieEvent;
     }
     // Update is called once per frame
     void Update()
@@ -37,11 +37,13 @@ public class PlayerMovment : MonoBehaviour
     {
         Vector2 velocity = rigidbody2.velocity;
         velocity.x = Input.GetAxisRaw("Horizontal") * speed;
+        gun.transform.localPosition = new Vector3(Input.GetAxisRaw("Horizontal") * .1f, -.15f, 0);
         rigidbody2.velocity = velocity;
         if (Input.GetAxisRaw("Horizontal") == 1)
         {
             animator.SetBool("walking", true);
             spriteRenderer.flipX = true;
+
             Player.fidget = 0;
         }
         else if (Input.GetAxisRaw("Horizontal") == -1)
@@ -111,6 +113,8 @@ public class PlayerMovment : MonoBehaviour
             {
                 collision.gameObject.SetActive(false);
                 Degradation.pickups++;
+                Degradation.holder.GetChild(Degradation.pickups -1).GetComponent<Icon>().Fill();
+                _ = Degradation.Percent;
             }
         }
     }

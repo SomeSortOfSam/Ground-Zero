@@ -14,6 +14,14 @@ public class Map : MonoBehaviour
     void Awake()
     {
         Degradation.totalPickups = pickups.Count;
+        foreach(Transform child in Degradation.holder)
+        {
+            Destroy(child.gameObject);
+        }
+        for(int i= 0; i< pickups.Count; i++)
+        {
+            Instantiate(Degradation.icon, Degradation.holder);
+        }
         staticPickups = pickups.ToArray();
         Player.player.startPos = startPos;
     }
