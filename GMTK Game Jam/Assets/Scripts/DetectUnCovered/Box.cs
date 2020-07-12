@@ -25,6 +25,10 @@ public class Box : DetectUnCovered
             }
             animator.SetBool("Dead",Player.dead);
         }
+        else
+        {
+            rigidbody2.velocity = new Vector2(0,-9.18f);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3df89e6dc23044d4aaaa5c7f98af01c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 5041404723489976390}
   - component: {fileID: 162924259117834003}
   - component: {fileID: -3444641996135596195}
-  - component: {fileID: -3427157093975692743}
+  - component: {fileID: 3768039404806340627}
   m_Layer: 0
   m_Name: Button
   m_TagString: Tile
@@ -129,7 +129,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
+  m_Offset: {x: 0.009930551, y: -0.15594172}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -140,7 +140,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.8}
+  m_Size: {x: 0.7301389, y: 0.30797768}
   m_EdgeRadius: 0
 --- !u!114 &-3444641996135596195
 MonoBehaviour:
@@ -154,10 +154,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9219f69e0833bf64b91602e592d73aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
   buttonDown: 0
---- !u!61 &-3427157093975692743
-BoxCollider2D:
+  upperUp: {fileID: 21300000, guid: 3df89e6dc23044d4aaaa5c7f98af01c7, type: 3}
+  upperDown: {fileID: 21300000, guid: 853229fbb0b732f4c8e6869921e9112d, type: 3}
+  upper: {fileID: 5041404723430605721}
+  underUp: {fileID: 21300000, guid: c5eec9c6d8ad8264495d5ef8f26c587f, type: 3}
+  underDown: {fileID: 21300000, guid: 51183a0083a07554fa5f36b4a714f13e, type: 3}
+  under: {fileID: 5041404724598480250}
+--- !u!60 &3768039404806340627
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -169,19 +174,26 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.4}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.2}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.33473662, y: -0.31384957}
+      - {x: -0.37630835, y: -0.36876923}
+      - {x: -0.42760816, y: -0.36998552}
+      - {x: -0.49953318, y: -0.49865896}
+      - {x: 0.5057461, y: -0.49453342}
+      - {x: 0.43451107, y: -0.37502098}
+      - {x: 0.41457838, y: -0.37331653}
+      - {x: 0.37486932, y: -0.31698757}
 --- !u!1 &5041404724598480228
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,7 +264,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: c5eec9c6d8ad8264495d5ef8f26c587f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
