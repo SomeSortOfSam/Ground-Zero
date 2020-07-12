@@ -11,6 +11,7 @@ public class Parralax : MonoBehaviour
     void Update()
     {
         transform.position = player.position - prevPos * .01f;
+        transform.position += Vector3.forward * 10;
         prevPos = player.position;
     }
 }

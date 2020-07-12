@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  gun: {fileID: 1140215922}
+  gun: {fileID: 1140215924}
   gunAnimator: {fileID: 1140215923}
   spriteMask: {fileID: 6127134298308002974, guid: 6da29b6418f631c459cdb2cd93dc9580,
     type: 3}
@@ -264,7 +264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140215921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.076, y: -0.137, z: -0.86723524}
+  m_LocalPosition: {x: -0.106, y: -0.051, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1374581891}
@@ -328,7 +328,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bd0ae502092cd044b8434298de3bc054, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -784,6 +784,7 @@ MonoBehaviour:
   speed: 10
   spriteRenderer: {fileID: 1906031406}
   animator: {fileID: 1906031402}
+  gun: {fileID: 1140215924}
   rayLeght: 0.54
   startPos: {fileID: 0}
   rigidbody2: {fileID: 1906031403}
@@ -992,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2512fd1014eaba42b92913ae5a4335a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1906031407}
+  player: {fileID: 1603291440}
 --- !u!4 &3404941624752863844
 Transform:
   m_ObjectHideFlags: 0
