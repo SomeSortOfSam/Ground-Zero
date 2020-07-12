@@ -24,6 +24,10 @@ public class Pellte : DetectUnCovered
         else
         {
             Destroy(gameObject);
+            if (collision.gameObject.GetComponent<Turret>())
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 }
