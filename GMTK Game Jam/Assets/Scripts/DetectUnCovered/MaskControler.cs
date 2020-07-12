@@ -7,6 +7,7 @@ public class MaskControler : MonoBehaviour
 {
     public Sprite sprite;
     public SpriteRenderer gun;
+    public SpriteRenderer gunOutline;
     public Animator gunAnimator;
     public GameObject spriteMask;
     public static GameObject staticSpriteMask;
@@ -25,6 +26,7 @@ public class MaskControler : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, nitey); 
         gun.transform.rotation = rotation;
         gun.flipX = Mathf.Sign(nitey.x) == -1;
+        gunOutline.flipX = Mathf.Sign(nitey.x) == -1;
         if (Input.GetMouseButtonDown(0))
         {
             gunAnimator.SetTrigger("Fire");

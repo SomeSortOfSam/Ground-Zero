@@ -35,8 +35,15 @@ public class Elevator : MonoBehaviour
         {
             Map map = FindObjectOfType<Map>();
             SceneManager.UnloadSceneAsync(map.index + 1);
-            Scene scene = SceneManager.LoadScene(map.index + 2, new LoadSceneParameters(LoadSceneMode.Additive));
-            Degradation.Reset();
+            if (SceneManager.sceneCountInBuildSettings > map.index + 2)
+            {
+                SceneManager.LoadScene(map.index + 2, new LoadSceneParameters(LoadSceneMode.Additive));
+                Degradation.Reset();
+            }
+            else
+            {
+                Degradation.button.Opening();
+            }
         }
     }
 }

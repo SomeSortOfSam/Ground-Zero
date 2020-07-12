@@ -322,6 +322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   head: {fileID: 1245856126814100438}
+  headOver: {fileID: 1245856125996995310}
+  headUnder: {fileID: 1245856125528850407}
   muzzleFlare: {fileID: 6127134298308002974, guid: 6da29b6418f631c459cdb2cd93dc9580,
     type: 3}
   bulletHit: {fileID: 6127134298308002974, guid: 6da29b6418f631c459cdb2cd93dc9580,
