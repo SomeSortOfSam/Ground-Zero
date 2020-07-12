@@ -32,7 +32,7 @@ public class MaskControler : MonoBehaviour
             gunAnimator.SetTrigger("Fire");
             Player.fidget = 0;
             mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
-            SummonMask(mousePos, .5f * Degradation.pickups);
+            SummonMask(mousePos, .5f * (Degradation.pickups + 1));
         }
     }
 
