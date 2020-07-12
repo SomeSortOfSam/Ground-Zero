@@ -7,12 +7,14 @@ using UnityEngine.SceneManagement;
 public class PlayerMovment : MonoBehaviour
 {
     public float speed = .1f;
+    public AudioSource audioSource;
     public SpriteRenderer spriteRenderer;
     public Animator animator;
+    public Rigidbody2D rigidbody2;
     public SpriteRenderer gun;
     public float rayLeght = .25f;
     public Transform startPos;
-    public Rigidbody2D rigidbody2;
+
     public int killPlane = -100;
 
     private void Start()
@@ -48,18 +50,20 @@ public class PlayerMovment : MonoBehaviour
         {
             animator.SetBool("walking", true);
             spriteRenderer.flipX = true;
-
+            audioSource.UnPause();
             Player.fidget = 0;
         }
         else if (Input.GetAxisRaw("Horizontal") == -1)
         {
             animator.SetBool("walking", true);
             spriteRenderer.flipX = false;
+            audioSource.UnPause();
             Player.fidget = 0;
         }
         else
         {
             animator.SetBool("walking", false);
+            audioSource.Pause();
         }
     }
 

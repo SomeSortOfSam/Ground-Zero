@@ -8,6 +8,7 @@ public class Elevator : MonoBehaviour
 {
     public Animator animator;
     public bool open = false;
+    public AudioSource ding;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +19,7 @@ public class Elevator : MonoBehaviour
     {
         Degradation.FinalDegradationEvent -= Open;
         open = true;
+        ding.Play();
         animator.SetBool("Open", true);
     }
 
