@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnergyBallButton : Button
+public class EnergyBallButton : InputButton
 {
     public Animator animator;
     public override void OnTriggerEnter2D(Collider2D collision)

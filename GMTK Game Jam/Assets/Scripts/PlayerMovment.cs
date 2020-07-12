@@ -17,7 +17,6 @@ public class PlayerMovment : MonoBehaviour
     {
         Player.player = this;
         Player.DieEvent += Degradation.Reset;
-        Player.DieEvent += DegredationChecker.ColorChangeRed;
         Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
         Player.DieEvent += Die;
         Degradation.FinalDegradationEvent += Player.InvkoeDieEvent;

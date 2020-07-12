@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FloorButton : Button
+public class FloorButton : InputButton
 {
     public Sprite upperUp;
     public Sprite upperDown;
