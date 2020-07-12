@@ -156,7 +156,6 @@ public class PlayerMovment : MonoBehaviour
             SceneManager.LoadScene(FindObjectOfType<Map>().index + 1, LoadSceneMode.Additive);
         }
         yield return new WaitForSeconds(2);
-        transform.position = startPos.position;
         rigidbody2.gravityScale = 1;
         Player.dead = false;
     }
