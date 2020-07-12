@@ -4,7 +4,7 @@ using UnityEngine;
 public class MaskBehaviour : MonoBehaviour
 {
     private int life = 200;
-    private int InverseLife { get => 100 - life; }
+    private int InverseLife { get => 200 - life; }
     public float maxSize = 1;
 
     private void Update()
