@@ -20,7 +20,6 @@ public class PlayerMovment : MonoBehaviour
         Player.DieEvent += Degradation.Reset;
         Player.DieEvent += delegate { MaskControler.SummonMask(transform.position, 150); };
         Player.DieEvent += Die;
-        Degradation.FinalDegradationEvent += Player.InvkoeDieEvent;
     }
     // Update is called once per frame
     void Update()
@@ -114,6 +113,8 @@ public class PlayerMovment : MonoBehaviour
             {
                 collision.gameObject.SetActive(false);
                 Degradation.pickups++;
+                Degradation.holder.GetChild(Degradation.pickups -1).GetComponent<Icon>().Fill();
+                _ = Degradation.Percent;
             }
         }
     }
