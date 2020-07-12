@@ -31,22 +31,8 @@ public class MaskControler : MonoBehaviour
         {
             gunAnimator.SetTrigger("Fire");
             Player.fidget = 0;
-            StartCoroutine(DegradationCorutine(mousePos));
-        }
-    }
-
-    private IEnumerator DegradationCorutine(Vector2 mousePos)
-    {
-        mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
-        System.Random random = new System.Random();
-        float size = Mathf.Lerp(.5f,2, Degradation.Percent);
-        SpriteMask mask = SummonMask(mousePos, size);
-        yield return new WaitForSeconds(.1f);
-        for(float i = 0; i < Degradation.Percent && mask != null; i += .1f)
-        {
-            size /= 2;
-            SummonMask(mousePos + (new Vector2(random.Next(-1,1),random.Next(-1,1)).normalized * mask.bounds.extents), size);
-            yield return new WaitForSeconds(.1f);
+            mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
+            SummonMask(mousePos, .5f * Degradation.pickups);
         }
     }
 
