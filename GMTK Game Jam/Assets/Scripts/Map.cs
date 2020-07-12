@@ -24,6 +24,7 @@ public class Map : MonoBehaviour
         }
         staticPickups = pickups.ToArray();
         Player.player.startPos = startPos;
+        Player.player.transform.position = startPos.position;
     }
 
     internal static void Reset()

@@ -19,17 +19,24 @@ public class Elevator : MonoBehaviour
     {
         Degradation.FinalDegradationEvent -= Open;
         open = true;
-        ding.Play();
-        animator.SetBool("Open", true);
+        if (animator != null)
+        {
+            animator.SetBool("Open", true);
+        }
+        if (ding != null)
+        {
+            ding.Play();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && open)
         {
-            SceneManager.UnloadSceneAsync(FindObjectOfType<Map>().index + 1);
-            SceneManager.LoadScene(FindObjectOfType<Map>().index + 2, LoadSceneMode.Additive);
-            other.transform.position = FindObjectOfType<Map>().startPos.position;
+            Map map = FindObjectOfType<Map>();
+            SceneManager.UnloadSceneAsync(map.index + 1);
+            Scene scene = SceneManager.LoadScene(map.index + 2, new LoadSceneParameters(LoadSceneMode.Additive));
+            Degradation.Reset();
         }
     }
 }

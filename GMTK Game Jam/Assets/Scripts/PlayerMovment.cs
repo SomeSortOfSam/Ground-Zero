@@ -149,11 +149,11 @@ public class PlayerMovment : MonoBehaviour
         SceneManager.UnloadSceneAsync(FindObjectOfType<Map>().index + 1);
         if (Degradation.Percent >= 1)
         {
-            SceneManager.LoadSceneAsync(FindObjectOfType<Map>().index + 2, LoadSceneMode.Additive);
+            SceneManager.LoadScene(FindObjectOfType<Map>().index + 2, LoadSceneMode.Additive);
         }
         else
         {
-            SceneManager.LoadSceneAsync(FindObjectOfType<Map>().index + 1, LoadSceneMode.Additive);
+            SceneManager.LoadScene(FindObjectOfType<Map>().index + 1, LoadSceneMode.Additive);
         }
         yield return new WaitForSeconds(2);
         transform.position = startPos.position;
