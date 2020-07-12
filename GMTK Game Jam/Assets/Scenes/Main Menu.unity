@@ -764,6 +764,7 @@ MonoBehaviour:
   - You grab an unknown peice of equipment...
   - And run into the depths to stop the anomaly!
   opening: 0
+  credits: 0
 --- !u!1 &1971496275
 GameObject:
   m_ObjectHideFlags: 0
