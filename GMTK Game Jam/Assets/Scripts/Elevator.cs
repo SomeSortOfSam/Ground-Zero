@@ -16,12 +16,12 @@ public class Elevator : MonoBehaviour
 
     private void Open()
     {
-        animator.SetBool("Open", true);
         Degradation.FinalDegradationEvent -= Open;
         open = true;
+        animator.SetBool("Open", true);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && open)
         {
