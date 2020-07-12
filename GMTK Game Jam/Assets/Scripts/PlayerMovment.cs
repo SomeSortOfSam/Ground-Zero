@@ -13,6 +13,7 @@ public class PlayerMovment : MonoBehaviour
     public float rayLeght = .25f;
     public Transform startPos;
     public Rigidbody2D rigidbody2;
+    public int killPlane = -100;
 
     private void Start()
     {
@@ -31,6 +32,10 @@ public class PlayerMovment : MonoBehaviour
         Movement();
         Jump();
         transform.rotation = Quaternion.identity;
+        if(transform.position.y <= killPlane)
+        {
+            Player.InvkoeDieEvent();
+        }
     }
 
     private void Movement()
@@ -105,7 +110,7 @@ public class PlayerMovment : MonoBehaviour
     {
         if (!Player.dead)
         {
-            if (collision.CompareTag("Mask"))
+            if (collision.CompareTag("Mask") || collision.CompareTag("Kill"))
             {
                 Player.InvkoeDieEvent();
             }
