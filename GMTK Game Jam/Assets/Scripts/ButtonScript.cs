@@ -4,32 +4,22 @@ using UnityEngine.SceneManagement;
 public class ButtonScript : MonoBehaviour
 {
     public Transform mask;
-    public Transform invertMask;
-    public Transform startOver;
-    public Transform exitOver;
-    public Transform titleOver;
-    public Transform startUnder;
-    public Transform exitUnder;
-    public Transform titleUnder;
+    public Transform spriteMask;
+    public Transform start;
+    public Transform exit;
     Vector2 startPos;
     Vector2 exitPos;
-    Vector2 titlePos;
     public void Start()
     {
-        startPos = startOver.position;
-        exitPos = exitOver.position;
-        titlePos = titleOver.position;
+        startPos = start.position;
+        exitPos = exit.position;
     }
     public void Update()
     {
         mask.position = Input.mousePosition;
-        invertMask.position = Input.mousePosition;
-        startOver.position = startPos;
-        exitOver.position = exitPos;
-        titleOver.position = titlePos;
-        startUnder.position = startPos;
-        exitUnder.position = exitPos;
-        titleUnder.position = titlePos;
+        spriteMask.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,10));
+        start.position = startPos;
+        exit.position = exitPos;
     }
     public void StartGame()
     {

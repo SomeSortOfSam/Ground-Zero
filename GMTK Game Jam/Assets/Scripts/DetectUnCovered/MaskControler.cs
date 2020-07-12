@@ -35,7 +35,7 @@ public class MaskControler : MonoBehaviour
     {
         mousePos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
         System.Random random = new System.Random();
-        float size = Mathf.Lerp(2,10, Degradation.Percent);
+        float size = Mathf.Lerp(.5f,2, Degradation.Percent);
         SpriteMask mask = SummonMask(mousePos, size);
         yield return new WaitForSeconds(.1f);
         for(float i = 0; i < Degradation.Percent && mask != null; i += .1f)
