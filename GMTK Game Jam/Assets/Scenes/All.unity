@@ -786,6 +786,7 @@ MonoBehaviour:
   rayLeght: 0.54
   startPos: {fileID: 0}
   rigidbody2: {fileID: 1906031403}
+  killPlane: -100
 --- !u!212 &1906031406
 SpriteRenderer:
   m_ObjectHideFlags: 0
