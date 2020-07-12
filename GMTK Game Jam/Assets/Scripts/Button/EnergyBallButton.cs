@@ -11,4 +11,9 @@ public class EnergyBallButton : InputButton
             base.OnTriggerEnter2D(collision);
         }
     }
+
+    public override void OnTriggerExit2D(Collider2D collider)
+    {
+
+    }
 }
