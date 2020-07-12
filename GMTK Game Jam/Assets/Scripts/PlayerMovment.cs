@@ -98,6 +98,7 @@ public class PlayerMovment : MonoBehaviour
             rigidbody2.velocity = velocity;
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!Player.dead)
@@ -111,6 +112,14 @@ public class PlayerMovment : MonoBehaviour
                 collision.gameObject.SetActive(false);
                 Degradation.pickups++;
             }
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Pellte"))
+        {
+            Player.InvkoeDieEvent();
         }
     }
 
