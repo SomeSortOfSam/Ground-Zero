@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 88531674196308759}
   - component: {fileID: 7760310824369630904}
   - component: {fileID: 682044367643711401}
+  - component: {fileID: 1817830528360359783}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4498745611423530897}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5944195, y: -1.292265, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -128,3 +129,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1817830528360359783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4498745611423530897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e248206edba9a94bb73d452e7300558, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  animator: {fileID: 682044367643711401}
+  pickUp: {fileID: 358086590136191203, guid: d1952d0a8630858419490b80fe3f3c18, type: 3}
+  doors2: []
+  doors3: []
