@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Death
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 30e6a5af6125ebf45aecd9177a588049, type: 3}
+    - time: 0.083333336
+      value: {fileID: 21300000, guid: 2221c0143386e84458a293f81619f477, type: 3}
+    - time: 0.16666667
+      value: {fileID: 21300000, guid: 74375fc82a67f7549a1be3d18d7a8e83, type: 3}
+    - time: 0.25
+      value: {fileID: 21300000, guid: 0292c9973c5897f44a0260b3a54f216c, type: 3}
+    - time: 0.33333334
+      value: {fileID: 21300000, guid: 6d1f14fc2b439f74d83b52e7d34802b1, type: 3}
+    - time: 0.41666666
+      value: {fileID: 21300000, guid: e8cfd9189f15bfa42bbb41659e13af9d, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: b14a2d1fd78cdfc4a82c92cd7012cc76, type: 3}
+    - time: 0.5833333
+      value: {fileID: 21300000, guid: 4aa489f530ba08444a2227fe4152835f, type: 3}
+    - time: 0.6666667
+      value: {fileID: 21300000, guid: e30fb114f8f52d04db05f3e8687c946a, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: 7f88b06aa62f537439e8c753d6644eec, type: 3}
+    - time: 0.8333333
+      value: {fileID: 21300000, guid: 6d00aa4f49b648b4e805944c5cfb998d, type: 3}
+    - time: 0.9166667
+      value: {fileID: 21300000, guid: f05866c3838ed034eacc82a9ce156d27, type: 3}
+    - time: 1
+      value: {fileID: 21300000, guid: 6bffdda6884f08448ac58f47e00453c1, type: 3}
+    - time: 1.0833334
+      value: {fileID: 21300000, guid: 21c8c7d89b7e77b40b94d7e214812aed, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 12
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - serializedVersion: 2
+      path: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 30e6a5af6125ebf45aecd9177a588049, type: 3}
+    - {fileID: 21300000, guid: 2221c0143386e84458a293f81619f477, type: 3}
+    - {fileID: 21300000, guid: 74375fc82a67f7549a1be3d18d7a8e83, type: 3}
+    - {fileID: 21300000, guid: 0292c9973c5897f44a0260b3a54f216c, type: 3}
+    - {fileID: 21300000, guid: 6d1f14fc2b439f74d83b52e7d34802b1, type: 3}
+    - {fileID: 21300000, guid: e8cfd9189f15bfa42bbb41659e13af9d, type: 3}
+    - {fileID: 21300000, guid: b14a2d1fd78cdfc4a82c92cd7012cc76, type: 3}
+    - {fileID: 21300000, guid: 4aa489f530ba08444a2227fe4152835f, type: 3}
+    - {fileID: 21300000, guid: e30fb114f8f52d04db05f3e8687c946a, type: 3}
+    - {fileID: 21300000, guid: 7f88b06aa62f537439e8c753d6644eec, type: 3}
+    - {fileID: 21300000, guid: 6d00aa4f49b648b4e805944c5cfb998d, type: 3}
+    - {fileID: 21300000, guid: f05866c3838ed034eacc82a9ce156d27, type: 3}
+    - {fileID: 21300000, guid: 6bffdda6884f08448ac58f47e00453c1, type: 3}
+    - {fileID: 21300000, guid: 21c8c7d89b7e77b40b94d7e214812aed, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 1.1666667
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []

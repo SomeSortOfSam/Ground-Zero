@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void ChangeDoorState(bool obj)
+    public void ChangeDoorState(bool obj)
     {
         if (obj)
         {
