@@ -7,7 +7,6 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     public InputButton button;
-    public Collider2D collider2;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -22,12 +21,10 @@ public class Door : MonoBehaviour
     {
         if (obj)
         {
-            collider2.enabled = false;
             animator.SetBool("Open", true);
         }
         else
         {
-            collider2.enabled = true;
             animator.SetBool("Open", false);
         }
     }
