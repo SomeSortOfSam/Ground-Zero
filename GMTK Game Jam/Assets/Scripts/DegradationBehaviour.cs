@@ -5,10 +5,12 @@ public class DegradationBehaviour : MonoBehaviour
 {
     public Transform holder;
     public GameObject icon;
+    public ButtonScript button;
     private void Start()
     {
         Degradation.holder = holder;
         Degradation.icon = icon;
+        Degradation.button = button;
     }
 }
 public static class Degradation
@@ -30,6 +32,7 @@ public static class Degradation
     public static int totalPickups;
     public static Transform holder;
     public static GameObject icon;
+    public static ButtonScript button;
 
     public static void Reset()
     {

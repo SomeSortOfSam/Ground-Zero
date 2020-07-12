@@ -12,11 +12,16 @@ public class ButtonScript : MonoBehaviour
     public Text text;
     public List<string> messages = new List<string>();
     public bool opening;
+    public bool credits;
     int message = 1;
 
     public void Update()
     {
-        spriteMask.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,10));
+        if (!credits)
+        {
+            spriteMask.position = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,10));
+        }
+
         if (Input.GetMouseButtonDown(0) && opening)
         {
             if (message < messages.Count)
@@ -24,12 +29,15 @@ public class ButtonScript : MonoBehaviour
                 text.text = messages[message];
                 message++;
             }
-            else
+            else if(!credits)
             {
                 StartGame();
+            } else
+            {
+                Quit();
             }
         }
-        else if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out RaycastHit hit) && Input.GetMouseButtonDown(0))
+        else if (!credits && Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out RaycastHit hit) && Input.GetMouseButtonDown(0))
         {
             if(hit.transform == start)
             {
