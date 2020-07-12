@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MaskBehaviour : MonoBehaviour
 {
-    private int life = 100;
+    private int life = 200;
     private int InverseLife { get => 100 - life; }
     public float maxSize = 1;
 

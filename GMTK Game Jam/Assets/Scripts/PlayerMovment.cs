@@ -70,7 +70,7 @@ public class PlayerMovment : MonoBehaviour
         }
         if (hitInfo.distance < rayLeght)
         {
-            Player.groundedNum = 20;
+            Player.groundedNum = 40;
             Player.fidget++;
             if (Player.fidget == 550 || Player.fidget == 551)
             {
