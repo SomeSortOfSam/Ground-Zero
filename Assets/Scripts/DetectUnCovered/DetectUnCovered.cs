@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectUnCovered : MonoBehaviour
+public class DetectUncovered : MonoBehaviour
 {
     public event Action<bool> UncoveredChangedEvent;
     public bool Uncovered { get => GetIsUncovered() && !Player.dead; }

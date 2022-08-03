@@ -6,7 +6,6 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     public List<Pickup> pickups = new List<Pickup>();
-    public static Pickup[] staticPickups;
     public Transform startPos;
     public int index;
 
@@ -14,24 +13,15 @@ public class Map : MonoBehaviour
     void Awake()
     {
         Degradation.totalPickups = pickups.Count;
-        foreach(Transform child in Degradation.holder)
+        foreach (Transform child in Degradation.holder)
         {
             Destroy(child.gameObject);
         }
-        for(int i= 0; i< pickups.Count; i++)
+        for (int i = 0; i < pickups.Count; i++)
         {
             Instantiate(Degradation.icon, Degradation.holder);
         }
-        staticPickups = pickups.ToArray();
-        Player.player.startPos = startPos;
         Player.player.transform.position = startPos.position;
     }
 
-    internal static void Reset()
-    {
-        foreach(Pickup pickup in staticPickups)
-        {
-            pickup.gameObject.SetActive(true);
-        }
-    }
 }

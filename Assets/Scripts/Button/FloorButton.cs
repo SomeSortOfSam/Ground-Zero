@@ -12,7 +12,7 @@ public class FloorButton : InputButton
     public SpriteRenderer under;
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Box _) || collision.TryGetComponent(out PlayerMovment _))
+        if (collision.TryGetComponent(out Box _) || collision.TryGetComponent(out PlayerMovement _))
         {
             upper.sprite = upperDown;
             under.sprite = underDown;
@@ -21,7 +21,7 @@ public class FloorButton : InputButton
     }
     public override void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Box _) || collision.TryGetComponent(out PlayerMovment _))
+        if (collision.TryGetComponent(out Box _) || collision.TryGetComponent(out PlayerMovement _))
         {
             upper.sprite = upperUp;
             under.sprite = underUp;

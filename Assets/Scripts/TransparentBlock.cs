@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TranspaentBlock : MonoBehaviour
+public class TransparentBlock : MonoBehaviour
 {
     public Collider2D collider2;
 

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Turret : DetectUnCovered
+public class Turret : DetectUncovered
 {
     public Transform head;
     public SpriteRenderer headOver;
@@ -20,9 +20,9 @@ public class Turret : DetectUnCovered
                 Debug.DrawLine(head.position, hit.point, Color.red);
                 if (fireTimer == framesBetweenFire)
                 {
-                    if (hit.collider.TryGetComponent(out PlayerMovment Pm))
+                    if (hit.collider.TryGetComponent(out PlayerMovement Pm))
                     {
-                        Player.InvkoeDieEvent();
+                        Player.InvokeDeadEvent();
                     }
                     else
                     {

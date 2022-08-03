@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BouncyPelltes : MonoBehaviour
+public class BouncyPellet : MonoBehaviour
 {
     public Vector3 direction;
-    internal Vector2 SetPelleteVelocity()
+    internal Vector2 SetPelletVelocity()
     {
         return direction.normalized;
     }

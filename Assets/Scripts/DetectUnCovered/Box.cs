@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Box : DetectUnCovered
+public class Box : DetectUncovered
 {
     public Rigidbody2D rigidbody2;
     public Animator animator;

@@ -6,7 +6,7 @@ public class EnergyBallButton : InputButton
 {
     public override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Pellte"))
+        if (collision.CompareTag("Pellet"))
         {
             base.OnTriggerEnter2D(collision);
         }

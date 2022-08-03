@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pellte : DetectUnCovered
+public class Pellet : DetectUncovered
 {
     public Rigidbody2D rigidbody2;
     public float speed;
@@ -11,15 +11,15 @@ public class Pellte : DetectUnCovered
     {
         if (Uncovered)
         {
-            rigidbody2.velocity = (FindObjectOfType<PlayerMovment>().transform.position - transform.position).normalized * speed; 
+            rigidbody2.velocity = (FindObjectOfType<PlayerMovement>().transform.position - transform.position).normalized * speed; 
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.transform.TryGetComponent(out BouncyPelltes bounce))
+        if(collision.transform.TryGetComponent(out BouncyPellet bounce))
         {
-            rigidbody2.velocity = bounce.SetPelleteVelocity() * speed;
+            rigidbody2.velocity = bounce.SetPelletVelocity() * speed;
         }
         else
         {

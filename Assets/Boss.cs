@@ -27,7 +27,7 @@ public class Boss : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Pellte"))
+        if (collision.gameObject.CompareTag("Pellet"))
         {
             animator.SetTrigger("harm");
             health--;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerMovment : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float speed = .1f;
     public AudioSource audioSource;
@@ -13,7 +13,6 @@ public class PlayerMovment : MonoBehaviour
     public Rigidbody2D rigidbody2;
     public SpriteRenderer gun;
     public float rayLeght = .25f;
-    public Transform startPos;
 
     public int killPlane = -100;
 
@@ -34,9 +33,9 @@ public class PlayerMovment : MonoBehaviour
         Movement();
         Jump();
         transform.rotation = Quaternion.identity;
-        if(transform.position.y <= killPlane)
+        if (transform.position.y <= killPlane)
         {
-            Player.InvkoeDieEvent();
+            Player.InvokeDeadEvent();
         }
     }
 
@@ -102,7 +101,8 @@ public class PlayerMovment : MonoBehaviour
             Vector2 velocity = rigidbody2.velocity;
             velocity.y = speed;
             rigidbody2.velocity = velocity;
-        } else
+        }
+        else
         {
             Vector2 velocity = rigidbody2.velocity;
             velocity.y = -9.18f;
@@ -116,13 +116,13 @@ public class PlayerMovment : MonoBehaviour
         {
             if (collision.CompareTag("Mask") || collision.CompareTag("Kill"))
             {
-                Player.InvkoeDieEvent();
+                Player.InvokeDeadEvent();
             }
             else if (collision.CompareTag("Pickup"))
             {
                 collision.gameObject.SetActive(false);
                 Degradation.pickups++;
-                Degradation.holder.GetChild(Degradation.pickups -1).GetComponent<Icon>().Fill();
+                Degradation.holder.GetChild(Degradation.pickups - 1).GetComponent<Icon>().Fill();
                 _ = Degradation.Percent;
             }
         }
@@ -130,9 +130,9 @@ public class PlayerMovment : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Pellte"))
+        if (collision.gameObject.CompareTag("Pellet"))
         {
-            Player.InvkoeDieEvent();
+            Player.InvokeDeadEvent();
         }
     }
 
@@ -163,13 +163,13 @@ public class PlayerMovment : MonoBehaviour
 
 public static class Player
 {
-    public static PlayerMovment player;
+    public static PlayerMovement player;
     public static int groundedNum;
     public static bool Grounded { get => groundedNum >= 0; }
     public static int fidget;
     public static bool dead;
     public static event Action DieEvent;
-    public static void InvkoeDieEvent()
+    public static void InvokeDeadEvent()
     {
         dead = true;
         DieEvent?.Invoke();

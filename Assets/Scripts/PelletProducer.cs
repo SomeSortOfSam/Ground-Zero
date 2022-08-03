@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PellteProducer : MonoBehaviour
+public class PelletProducer : MonoBehaviour
 {
     public InputButton button;
     public GameObject Pellate;
@@ -15,8 +15,8 @@ public class PellteProducer : MonoBehaviour
         time++;
         if(time >= FramesBetweenShots && (button == null || (button != null && button.buttonDown)))
         {
-            GameObject pellate = Instantiate(Pellate,transform.position - transform.right, Quaternion.identity);
-            pellate.GetComponent<Rigidbody2D>().velocity = -transform.right * pellate.GetComponent<Pellte>().speed;
+            GameObject pellet = Instantiate(Pellate,transform.position - transform.right, Quaternion.identity);
+            pellet.GetComponent<Rigidbody2D>().velocity = -transform.right * pellet.GetComponent<Pellet>().speed;
             time = 0;
         }
     }
